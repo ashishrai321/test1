@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="msapplication-tap-highlight" content="no">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<script src="assets/js/lib.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+</head>
+<body>
+<div class="loader"> </div>
+<div class="mainWrapper">
+  <header class="main"> </header>
+  <main>
+    <aside class="subNav" id="subNav">
+      <div class="filter">
+        <div class="filterBlock">
+          <h4>Category</h4>
+          <ul class="list cusCheck">
+            <li>
+              <input type="checkbox" name="manufacturer" value="apple" id="cat_alloyWheels">
+              <label for="cat_alloyWheels">opt1</label>
+            </li>
+            <li>
+              <input type="checkbox" name="manufacturer" value="samsung" id="cat_silencers">
+              <label for="cat_silencers">opt1</label>
+            </li>
+            <li>
+              <input type="checkbox" name="manufacturer" value="htc" id="cat_protectors">
+              <label for="cat_protectors">opt1</label>
+            </li>
+            <li>
+              <input type="checkbox" name="manufacturer" value="nokia" id="cat_lightAndSound">
+              <label for="cat_lightAndSound">opt1</label>
+            </li>
+            <li>
+              <input type="checkbox" name="manufacturer" value="zte" id="cat_covers">
+              <label for="cat_covers">opt1</label>
+            </li>
+            <li>
+              <input type="checkbox" name="manufacturer" value="sony" id="cat_styleAttributes">
+              <label for="cat_styleAttributes">opt1</label>
+            </li>
+          </ul>
+          
+        </div>
+        <div class="filterBlock optFilter">
+          <h4>Brand</h4>
+          <ul class="list cusCheck">
+            <li>
+              <input type="checkbox" name="brand" value="parado" id="brand_parado">
+              <label for="brand_parado"> opt1</label>
+            </li>
+            <li>
+              <input type="checkbox" name="brand" value="royalErado" id="brand_royalErado">
+              <label for="brand_royalErado"> opt1</label>
+            </li>
+            <li>
+              <input type="checkbox" name="brand" value="kingway" id="brand_kingway">
+              <label for="brand_kingway"> opt1</label>
+            </li>
+            <li>
+              <input type="checkbox" name="brand" value="Others" id="brand_others">
+              <label for="brand_others"> opt1</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+    <div class="filterData" id="filterData">
+      
+      <ul class="row- list">
+      	<h3 class="title">opt1</h3>
+      	<script id="products-template" type="x-handlebars-template">​
+			{{#each this}}
+				<li class="col-sm-4" data-index="{{id}}">
+					<a href="#" class="product-photo"><figure><img src="assets/images/icon/blank_4x3.png" alt="" class="blank"><img src="{{image.small}}" height="130" alt="{{name}}"/></figure></a>
+					<div class="name">{{name}}</div>
+					<div class="brand">{{specs.manufacturer}}</div>
+					<div class="price">{{price}}$</div>
+					<aside>
+					  <input type="text" placeholder="Enter Quantity">
+					  <button class="btn fill">Add to cart</button>
+				  	</aside>
+				</li>
+			{{/each}}
+		</script>
+        <h3 class="title">opt2</h3>
+        <script id="products-templates" type="x-handlebars-template">​
+			{{#each this}}
+				<li class="col-sm-4" data-index="{{id}}">
+					<a href="#" class="product-photo"><figure><img src="assets/images/icon/blank_4x3.png" alt="" class="blank"><img src="{{image.small}}" height="130" alt="{{name}}"/></figure></a>
+					<div class="name">{{name}}</div>
+					<div class="brand">{{specs.manufacturer}}</div>
+					<div class="price">{{price}}$</div>
+					<aside>
+					  <input type="text" placeholder="Enter Quantity">
+					  <button class="btn fill">Add to cart</button>
+				  	</aside>
+				</li>
+			{{/each}}
+		</script>
+
+      </ul>
+    </div>
+  </main>
+</div>
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>

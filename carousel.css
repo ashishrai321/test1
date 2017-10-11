@@ -1,0 +1,341 @@
+/** Carousel - General **/
+.jcarousel-wrapper .jcarousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.jcarousel-wrapper .jcarousel img {
+  position: relative;
+  width: 100%;
+}
+.jcarousel-wrapper .jcarousel.imgAuto img {
+  width: auto;
+}
+.jcarousel-wrapper .jcarousel > ul {
+  width: 20000em;
+  position: relative;
+}
+.jcarousel-wrapper .jcarousel > ul li {
+  float: left;
+  list-style: none;
+  position: relative;
+}
+.jcarousel-wrapper .jcarousel > ul li ul {
+  width: auto;
+}
+.jcarousel-wrapper .jcarousel > ul li ul li {
+  display: block;
+  float: none;
+}
+.jcarousel-wrapper .jcarousel > ul ul.social {
+  width: 222px;
+}
+.jcarousel-wrapper .jcarousel-pagination {
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 2;
+}
+.jcarousel-wrapper .jcarousel-pagination.relative {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  margin-left: 0;
+}
+.jcarousel-wrapper .jcarousel-pagination a {
+  text-decoration: none;
+  display: inline-block;
+  height: .9rem;
+  width: .9rem;
+  background-color: #f00;
+  border-radius: .9rem;
+  margin-right: 10px;
+  font-size: 11px;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+.jcarousel-wrapper .jcarousel-pagination a:last-child {
+  margin-right: 0;
+}
+.jcarousel-wrapper .jcarousel-pagination a.active {
+  background-color: #00f;
+}
+.jcarousel-wrapper.vertical .jcarousel {
+  height: 0;
+}
+.jcarousel-wrapper.vertical .jcarousel ul {
+  height: 50em;
+  width: auto;
+}
+.jcarousel-wrapper.vertical .jcarousel ul.verSlideUpDown {
+  height: 100em;
+}
+.jcarousel-wrapper.vertical .jcarousel ul.verSlideUpDown li {
+  float: none;
+}
+.jcarousel-wrapper.vertical .pagination {
+  display: block;
+  right: 0;
+  top: 0%;
+  bottom: 0;
+  left: 100%;
+  z-index: 1;
+  position: absolute;
+  margin-left: .6rem;
+}
+.jcarousel-wrapper.vertical .pagination .jcarousel-pagination {
+  display: table-cell;
+  vertical-align: middle;
+  position: static;
+}
+.jcarousel-wrapper.vertical .pagination .jcarousel-pagination a {
+  display: block;
+  margin-bottom: .2rem;
+  margin-right: 0;
+  vertical-align: top;
+}
+.jcarousel-wrapper.vertical .pagination .jcarousel-pagination a:last-child {
+  margin-bottom: 0;
+}
+.jcarousel-wrapper.vertical.wFull .pagination {
+  margin-left: -2rem;
+}
+.jcarousel-wrapper.vertical.wFull .pagination .jcarousel-pagination a {
+  border: solid .2rem #fff;
+  background-color: transparent;
+  margin-bottom: .5rem;
+}
+.jcarousel-wrapper.vertical.wFull .pagination .jcarousel-pagination a.active {
+  background-color: #fff;
+}
+@media (max-width: 767px) {
+  .jcarousel-wrapper.vertical .pagination {
+    right: 0;
+    top: auto;
+    bottom: auto;
+    left: 0;
+    margin-left: 0;
+  }
+  .jcarousel-wrapper.vertical .pagination .jcarousel-pagination a {
+    display: inline-block;
+    margin: .2rem;
+  }
+}
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  margin-top: -26px;
+  width: 38px;
+  height: 80px;
+  text-decoration: none;
+  z-index: 1;
+  display: block;
+  border-radius: inherit;
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+}
+.prev:before,
+.next:before {
+  border-color: #000 transparent transparent #000;
+  border-style: solid;
+  border-width: 10px;
+  width: 1.5em;
+  height: 1.5em;
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -0.5em;
+  margin-top: -1em;
+  top: 50%;
+  opacity: .1;
+}
+.prev:hover:before,
+.next:hover:before {
+  border-left: 10px solid #f00;
+  border-top: 10px solid #f00;
+  opacity: 1;
+}
+.prev {
+  left: 0;
+}
+.prev:before {
+  -webkit-transform: rotate(-54deg) skew(-20deg);
+  transform: rotate(-54deg) skew(-20deg);
+}
+.next {
+  right: 0;
+}
+.next:before {
+  -webkit-transform: rotate(126deg) skew(-20deg);
+  transform: rotate(126deg) skew(-20deg);
+  margin-left: -1.9em;
+}
+a.inactive {
+  opacity: 0;
+  cursor: default;
+}
+* aside.cntls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+* aside.cntls > a {
+  display: block;
+  height: 100%;
+  width: 2.5em;
+  background-color: #f00;
+  float: left;
+  border-left: solid .25em #fff;
+  position: relative;
+  top: 0;
+  margin-top: 0;
+}
+* aside.cntls .prev:before,
+* aside.cntls .next:before {
+  border-color: #fff transparent transparent #fff;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -0.2rem;
+  margin-top: -0.5rem;
+  top: 50%;
+  opacity: .75;
+}
+* aside.cntls .prev:hover:before,
+* aside.cntls .next:hover:before {
+  border-left: 5px solid #fff;
+  border-top: 5px solid #fff;
+  opacity: 1;
+}
+* aside.cntls .prev:before {
+  -webkit-transform: rotate(-45deg) skew(0);
+  transform: rotate(-45deg) skew(0);
+}
+* aside.cntls .next:before {
+  -webkit-transform: rotate(135deg) skew(0);
+  transform: rotate(135deg) skew(0);
+  margin-left: -0.7rem;
+}
+* aside.cntls a.inactive {
+  opacity: 1;
+}
+* aside.cntls a.inactive:before {
+  opacity: .1;
+}
+* aside.cntls a.inactive:hover:before {
+  opacity: .1;
+}
+* aside.cntls.bar {
+  background-color: #000;
+  position: relative;
+  height: 2.75em;
+}
+* aside.cntls.bar .prev {
+  border-left: none;
+  border-right: solid .25em #fff;
+}
+* aside.cntls.bar .next {
+  float: right;
+}
+* aside.cntls.bar aside.socialBar {
+  margin-top: .125em;
+}
+/** Carousel - General End **/
+.verSlideUpDown {
+  position: relative;
+  line-height: normal;
+  /*	li {
+		.table {
+			overflow:hidden;
+			.tableCell {
+				opacity:0;
+				-webkit-transition:all .5s ease-in;
+				transition:all .5s ease-in;
+				position:relative;
+				&:first-child{
+					top:-200px;
+				}
+				&:last-child{
+					top:200px;
+				}
+			}
+		}
+		&.active {
+			.table {
+				.tableCell {
+					opacity:1;
+					top:0px;
+				}
+			}
+		}
+	}*/
+}
+.verSlideUpDown:before,
+.verSlideUpDown:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  content: "";
+  z-index: -1;
+}
+.verSlideUpDown:before {
+  left: 0;
+  right: 50%;
+  background-color: #f00;
+}
+.verSlideUpDown:after {
+  right: 0;
+  left: 50%;
+  background-color: #f00;
+}
+.verSlideUpDown li {
+  float: none !important;
+}
+.verSlideUpDown li > div > div:first-child {
+  font-size: 5em;
+}
+.verSlideUpDown li > div > div:last-child {
+  font-size: 1.25em;
+}
+@media (max-width: 767px) {
+  .verSlideUpDown:before,
+  .verSlideUpDown:after {
+    display: none;
+  }
+  .verSlideUpDown li > div > div:first-child {
+    background-color: #f00;
+  }
+  .verSlideUpDown li > div > div:last-child {
+    background-color: #f00;
+  }
+}
+.meetTeam .prev:before,
+.meetTeam .next:before {
+  opacity: .5;
+}
+.meetTeam .prev:hover:before,
+.meetTeam .next:hover:before {
+  border-left: 10px solid #000;
+  border-top: 10px solid #000;
+  opacity: 1;
+}
+.meetTeam .prev {
+  left: 1em;
+}
+.meetTeam .next {
+  right: 1em;
+}
+@media (max-width: 479px) {
+  #careers img {
+    width: 160%;
+    max-width: none;
+  }
+}

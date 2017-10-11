@@ -1,0 +1,383 @@
+/** Carousel - General **/
+.jcarousel-wrapper {
+	.jcarousel {
+		overflow: hidden;
+		width: 100%;
+		position: relative;
+		img {
+			//display: block;
+			position: relative;
+			width:100%;
+		}
+		&.imgAuto {
+			img {
+				width:auto;
+			}
+		}
+		& > ul {
+			width: 20000em;
+			position: relative;
+			li {
+				float: left;
+				list-style:none;
+				position:relative;
+				ul {
+					width:auto;
+					li{
+						display:block;
+						float:none;
+					}
+				}
+			}
+			ul.social {
+				width:222px;
+			}
+		}
+	}
+	.jcarousel-pagination {
+		bottom: 10px;
+		left: 0;
+		right: 0;
+		position: absolute;
+		z-index:2;
+		&.relative {
+			position: relative;
+			bottom: auto;
+			left: auto;
+			margin-left: 0;
+		}
+		a {
+			text-decoration: none;
+			display: inline-block;
+			height: .9rem;
+			width: .9rem;
+			background-color:@lGolden;
+			border-radius: .9rem;
+			margin-right: 10px;
+			font-size:11px;
+			text-indent:-9999px;
+			overflow:hidden;
+			&:last-child {
+				margin-right: 0;
+			}
+			&.active {
+				background-color:@blue;
+			}
+		}
+	}
+	&.vertical {
+		.jcarousel {
+			height:0;
+			ul {
+				height: 50em;
+				width:auto;
+				&.verSlideUpDown {
+					height:100em;
+					li {
+						float:none;
+					}
+				}
+			}
+		}
+		.pagination {
+			display:block;
+			right: 0;
+			top: 0%;
+			bottom: 0;
+			left:100%;
+			z-index: 1;
+			position:absolute;
+			margin-left:.6rem;
+			.jcarousel-pagination {
+				display:table-cell;
+				vertical-align:middle;
+				position:static;
+				a {
+					display: block;
+					margin-bottom: .2rem;
+					margin-right: 0;
+					vertical-align:top;
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+		&.wFull {
+			.pagination {
+				margin-left:-2rem;
+				.jcarousel-pagination {
+					a {
+						border:solid .2rem @white;
+						background-color:transparent;
+						margin-bottom: .5rem;
+						&.active {
+							background-color:@white;
+						}
+					}
+				}
+			}
+		}
+	}
+	@media(max-width:@sm){
+		&.vertical {
+			.pagination {
+				right: 0;
+				top: auto;
+				bottom: auto;
+				left:0;
+				margin-left:0;
+				.jcarousel-pagination {
+					a {
+						display: inline-block;
+						margin: .2rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+.prev, .next {
+	position: absolute;
+	top: 50%;
+	margin-top: -26px;
+	width: 38px;
+	height: 80px;
+	text-decoration: none;
+	z-index:1;
+	display:block;
+	border-radius:inherit;
+	-webkit-transition:all .25s ease-in;
+	transition:all .25s ease-in;
+	&:before {
+		border-color: @black transparent transparent @black;
+		border-style: solid;
+		border-width: 10px;
+		width:1.5em;
+		height:1.5em;
+		content:"";
+		position:absolute;
+		left: 50%;
+		margin-left: -0.5em;
+		margin-top: -1em;
+		top: 50%;
+		opacity:.1;
+		@hoverEffect();
+	}
+	&:hover {
+		&:before {
+			border-left: 10px solid @golden;
+			border-top: 10px solid @golden;
+			opacity: 1;
+		}
+	}
+}
+.prev {
+	left: 0;
+	&:before {
+		-webkit-transform: rotate(-54deg) skew(-20deg);
+		transform: rotate(-54deg) skew(-20deg);
+	}
+}
+.next {
+	right: 0;
+	&:before {
+		-webkit-transform: rotate(126deg) skew(-20deg);
+		transform: rotate(126deg) skew(-20deg);
+		margin-left: -1.9em;
+	}
+}
+a.inactive {
+	opacity:0;
+	cursor:default;
+}
+
+* {
+	aside.cntls {
+		position:absolute;
+		top:0;
+		right:0;
+		bottom:0;
+		& > a {
+			display:block;
+			height:100%;
+			width:2.5em;
+			background-color:@golden;
+			float:left;
+			border-left:solid .25em @white;
+			position: relative;
+			top:0;
+			margin-top:0;
+		}
+		.prev, .next {
+			&:before {
+				border-color: @white transparent transparent @white;
+				border-style: solid;
+				border-width: 5px;
+				box-sizing: border-box;
+				width:1rem;
+				height:1rem;
+				content:"";
+				position:absolute;
+				left: 50%;
+				margin-left: -0.2rem;
+				margin-top: -.5rem;
+				top: 50%;
+				opacity:.75;
+				@hoverEffect();
+			}
+			&:hover {
+				&:before {
+					border-left: 5px solid @white;
+					border-top: 5px solid @white;
+					opacity: 1;
+				}
+			}
+		}
+		.prev {
+			&:before {
+				-webkit-transform: rotate(-45deg) skew(0);
+				transform: rotate(-45deg) skew(0);
+			}
+		}
+		.next {
+			&:before {
+				-webkit-transform: rotate(135deg) skew(0);
+				transform: rotate(135deg) skew(0);
+				margin-left: -0.7rem;
+			}
+		}
+		a.inactive {
+			opacity:1;
+			&:before {
+				opacity:.1;
+			}
+			&:hover {
+				&:before {
+					opacity: .1;
+				}
+			}
+		}
+		
+		&.bar {
+			background-color:@black;
+			position:relative;
+			height:2.75em;
+			.prev {
+				border-left:none;
+				border-right:solid .25em @white;
+			}
+			.next {
+				float:right;
+			}
+			aside.socialBar {
+				margin-top:.125em;
+			}
+		}
+	}
+}
+
+/** Carousel - General End **/
+
+.verSlideUpDown {
+	position:relative;
+	line-height:normal;
+	&:before, &:after {
+		position:absolute;
+		top:0;
+		bottom:0;
+		content:"";
+		z-index: -1;
+	}
+	&:before {
+		left:0;
+		right:50%;
+		background-color:@mGolden;
+	}
+	&:after {
+		right:0;
+		left:50%;
+		background-color:@lGolden;
+	}
+	li {
+		float:none !important;
+	}
+	li > div > div  {
+		&:first-child {
+			font-size:5em;
+		}
+		&:last-child {
+			font-size:1.25em;
+		}
+	}
+/*	li {
+		.table {
+			overflow:hidden;
+			.tableCell {
+				opacity:0;
+				-webkit-transition:all .5s ease-in;
+				transition:all .5s ease-in;
+				position:relative;
+				&:first-child{
+					top:-200px;
+				}
+				&:last-child{
+					top:200px;
+				}
+			}
+		}
+		&.active {
+			.table {
+				.tableCell {
+					opacity:1;
+					top:0px;
+				}
+			}
+		}
+	}*/
+	
+	@media(max-width:@sm){
+		&:before, &:after {
+			display:none;
+		}
+		li > div > div  {
+			&:first-child {
+				background-color:@mGolden;
+			}
+			&:last-child {
+				background-color:@lGolden;
+			}
+		}
+	}
+}
+.meetTeam {
+	.prev, .next {
+		&:before {
+			opacity:.5;
+		}
+		&:hover {
+			&:before {
+				border-left: 10px solid @black;
+				border-top: 10px solid @black;
+				opacity:1;
+			}
+		}
+	}
+	.prev {
+		left: 1em;
+	}
+	.next {
+		right: 1em;
+	}
+}
+@media (max-width:479px) {
+	#careers {
+		img {
+			width: 160%;
+			max-width: none; 
+		}
+	}
+}
+
+
